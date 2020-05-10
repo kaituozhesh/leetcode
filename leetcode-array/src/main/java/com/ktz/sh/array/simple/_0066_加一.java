@@ -53,4 +53,21 @@ public class _0066_加一 {
         digits[0] = 1;
         return digits;
     }
+
+    public static int[] plusOne3(int[] digits) {
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (digits[i] != 9) {
+                digits[i]++;
+                return digits;
+            } else {
+                digits[i] = 0;
+                if (i == 0) {
+                    digits = new int[digits.length + 1];
+                    digits[0] = 1;
+                    return digits;
+                }
+            }
+        }
+        return digits;
+    }
 }
