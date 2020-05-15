@@ -11,7 +11,11 @@ package com.ktz.sh.array.simple;
  **/
 public class _0035_搜索插入位置 {
 
-    public int searchInsert(int[] nums, int target) {
+    public static void main(String[] args) {
+        System.out.println(searchInsert(new int[]{1}, 1));
+    }
+
+    public static int searchInsert(int[] nums, int target) {
         int i = 0;
         int j = nums.length - 1;
         int mid = 0;
@@ -26,50 +30,8 @@ public class _0035_搜索插入位置 {
                 j = mid - 1;
             }
         }
-        return nums[mid] > target ? 2 : 1;
+        mid = i + (j - i) / 2;
+        return nums[mid] >= target ? mid : mid + 1;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(xxx(new int[]{-1, -1, -1, 0, 1, 1}));
-    }
-
-    public static int xxxx(int[] nums) {
-        if (nums != null && nums.length < 3) {
-            return -1;
-        }
-        int sum = 0;
-        int sumLeft = 0;
-        int sumRight = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                sumLeft = 0;
-            } else {
-                sumLeft = sumLeft + nums[i - 1];
-            }
-            sumRight = sum - sumLeft - nums[i];
-            if (sumLeft == sumRight) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public static int xxx(int[] nums) {
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        int leftSum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            leftSum += nums[i];
-            if (leftSum == sum - leftSum) {
-                return i;
-            }
-        }
-        return -1;
-    }
 }
